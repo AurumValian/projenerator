@@ -7,6 +7,8 @@ export const randomProjectApi = async () => {
     const projectFetch = await fetch('https://api.publicapis.org/random')
     const projectData = await projectFetch.json()
     return projectData
+  } catch (error) {
+    console.log(error)
   }
 }
 
@@ -64,5 +66,6 @@ export const audiences = [
   "Influencers",
   "Fitness Coaches",
   "Professors",
-  "Filmmakers"
+  "Filmmakers",
+  "Thespians"
 ]
