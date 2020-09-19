@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import { getRandomIndex, randomProjectApi, audiences } from "../helpers/helpers"
 import { Route } from  "react-router-dom";
@@ -10,11 +11,12 @@ class App extends Component {
     this.state = {
       project: {}
     }
+
+    this.getRandomApi = this.getRandomApi.bind(this);
   }
 
   componentDidMount() {
     console.log(audiences, getRandomIndex(audiences))
-    this.getRandomApi();
   }
 
   getRandomApi() {
@@ -24,21 +26,16 @@ class App extends Component {
 
   render() {
     return (
+    <Router>
       <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Route exact path="/" render={() =>
+          <div>
+            <button className="random-project-button" onClick={this.getRandomApi}>Create Random Project!</button>
+          </div>
+        }
+        />
       </div>
+    </Router>
     );
   }
 }
