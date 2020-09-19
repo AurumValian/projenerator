@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import Project from "../Project/Project";
+import Favorites from "../Favorites/Favorites";
 import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 import { getRandomIndex, randomProjectApi, audiences } from "../helpers/helpers"
@@ -50,14 +51,19 @@ class App extends Component {
         <Header isHome={this.state.isHome} favorites={this.state.favorites}/>
         <Route exact path="/" render={() =>
           <div>
-            <button className="random-project-button" onClick={this.getRandomProject}>Create Random Project!</button>
-        {this.state.api.API && (
-          <Project api={this.state.api.API} description={this.state.api.description} audience={this.state.audience} saveProject={this.saveProject}/>
-        )}
-        </div>
-      }
+            <button className="random-project-button" onClick={this.getRandomProject}>
+              Create Random Project!
+            </button>
+            {this.state.api.API && (
+              <Project api={this.state.api.API} description={this.state.api.description} audience={this.state.audience} saveProject={this.saveProject}/>
+            )}
+          </div>
+        }
         />
-
+        <Route exact path="/favorites" render={() =>
+          <Favorites />
+        }
+        />
       </div>
     </Router>
     );
