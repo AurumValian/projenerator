@@ -9,10 +9,12 @@ class App extends Component {
     super()
 
     this.state = {
-      project: {}
+      project: {},
+      audience: ""
     }
 
     this.getRandomApi = this.getRandomApi.bind(this);
+    this.getRandomProject = this.getRandomProject.bind(this);
   }
 
   componentDidMount() {
@@ -24,13 +26,19 @@ class App extends Component {
       .then(response => this.setState({project: response.entries[0]}))
   }
 
+  getRandomProject() {
+    this.getRandomApi();
+    const audience = audiences[getRandomIndex(audiences)]
+    this.setState({audience: audience})
+  }
+
   render() {
     return (
     <Router>
       <div className="App">
         <Route exact path="/" render={() =>
           <div>
-            <button className="random-project-button" onClick={this.getRandomApi}>Create Random Project!</button>
+            <button className="random-project-button" onClick={this.getRandomProject}>Create Random Project!</button>
           </div>
         }
         />
