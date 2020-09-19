@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import Header from "../Header/Header"
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { Component } from "react";
+import Header from "../Header/Header";
+import Project from "../Project/Project";
+import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 import { getRandomIndex, randomProjectApi, audiences } from "../helpers/helpers"
 import { Route } from  "react-router-dom";
@@ -10,7 +11,7 @@ class App extends Component {
     super()
 
     this.state = {
-      project: {},
+      api: {},
       audience: "",
       isHome: true,
       favorites: []
@@ -18,6 +19,7 @@ class App extends Component {
 
     this.getRandomApi = this.getRandomApi.bind(this);
     this.getRandomProject = this.getRandomProject.bind(this);
+    this.saveProject = this.saveProject.bind(this);
   }
 
   componentDidMount() {
@@ -26,13 +28,19 @@ class App extends Component {
 
   getRandomApi() {
     randomProjectApi()
-      .then(response => this.setState({project: response.entries[0]}))
+      .then(response => this.setState({api: response.entries[0]}))
   }
 
   getRandomProject() {
     this.getRandomApi();
     const audience = audiences[getRandomIndex(audiences)]
     this.setState({audience: audience})
+  }
+
+  saveProject() {
+    const favorites = this.state.favorites.slice();
+    favorites.push({api: this.state.api, audience: this.state.audience});
+    this.setState({favorites: favorites})
   }
 
   render() {
@@ -43,9 +51,13 @@ class App extends Component {
         <Route exact path="/" render={() =>
           <div>
             <button className="random-project-button" onClick={this.getRandomProject}>Create Random Project!</button>
-          </div>
-        }
+        {this.state.api.API && (
+          <Project api={this.state.api.API} description={this.state.api.description} audience={this.state.audience} saveProject={this.saveProject}/>
+        )}
+        </div>
+      }
         />
+
       </div>
     </Router>
     );
