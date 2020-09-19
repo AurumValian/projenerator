@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header(props) {
   return (
     <header>
-      {props.favorites &&
+      {props.favorites[0] &&
         <Link to="/favorites"><button className="favorites-button">Your Favorites</button></Link>
       }
       The Project Project
@@ -15,3 +15,4 @@ function Header(props) {
     </header>
   )
 }
+export default Header
