@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { getRandomIndex, randomProjectApi, audiences } from "../helpers/helpers"
 
 function App() {
   return (

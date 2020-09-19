@@ -1,5 +1,13 @@
-export const getRandomIndex(array) => {
+export const getRandomIndex = (array) => {
   return Math.floor(Math.random() * array.length);
+}
+
+export const randomProjectApi = async () => {
+  try {
+    const projectFetch = await fetch('https://api.publicapis.org/random')
+    const projectData = await projectFetch.json()
+    return projectData
+  }
 }
 
 export const audiences = [
