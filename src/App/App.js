@@ -42,8 +42,14 @@ class App extends Component {
 
   saveProject() {
     const favorites = this.state.favorites.slice();
-    favorites.push({api: this.state.api, audience: this.state.audience});
-    this.setState({favorites: favorites})
+    const newProject = {api: this.state.api, audience: this.state.audience}
+    const isRepeat = favorites.find(favorite => {
+      return favorite.api === newProject.api && favorite.audience === newProject.audience
+    })
+    if (!isRepeat) {
+      favorites.push(newProject);
+      this.setState({favorites: favorites})
+    }
   }
 
   noLongerHome() {
@@ -52,6 +58,10 @@ class App extends Component {
 
   backHome() {
     this.setState({isHome: true});
+  }
+
+  deleteFavorite() {
+
   }
 
   render() {
