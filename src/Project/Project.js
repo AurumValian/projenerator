@@ -6,6 +6,8 @@ function Project(props) {
     <section className="project-area">
       Your random API is: <br/>
       {props.api} <br/>
+      Here is a link: <br/>
+      <a href={props.link}>Link to your API!</a> <br/>
       Here is a brief description: <br/>
       {props.description} <br/>
       Your target audience is: <br/>
