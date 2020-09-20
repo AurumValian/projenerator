@@ -62,7 +62,7 @@ class App extends Component {
         <Route exact path="/" render={() =>
           <div>
             {this.state.api.API && (
-              <Project api={this.state.api.API} description={this.state.api.description} audience={this.state.audience} saveProject={this.saveProject}/>
+              <Project api={this.state.api.API} description={this.state.api.Description} audience={this.state.audience} saveProject={this.saveProject}/>
             )}
             <button className="random-project-button" onClick={this.getRandomProject}>
               Create Random Project!

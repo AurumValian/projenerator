@@ -2,8 +2,8 @@
   text-align: center;
 }
 
-.create-project-button {
-  width: 100%;
-  height: 50%;
-  background-color: white;
+.random-project-button {
+  margin-top: 1%;
+  height: 20vh;
+  width: 30vw;
 }
