@@ -4,7 +4,10 @@ import "./ProjectCard.css";
 function ProjectCard(props) {
   return (
     <article className="project-card">
-      This is a project card
+      API: {props.api} <br/>
+      Audience: {props.audience} <br/>
+      Link: {props.link} <br/>
+      <button className="delete-button">Delete</button>
     </article>
   )
 }
