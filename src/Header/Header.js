@@ -10,7 +10,7 @@ function Header(props) {
       }
       The Project Project
       {!props.isHome &&
-        <Link to="/"><button className="home-button">Back to Home</button></Link>
+        <Link to="/"><button className="home-button" onClick={props.backHome}>Back to Home</button></Link>
       }
     </header>
   )

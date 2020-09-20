@@ -21,6 +21,8 @@ class App extends Component {
     this.getRandomApi = this.getRandomApi.bind(this);
     this.getRandomProject = this.getRandomProject.bind(this);
     this.saveProject = this.saveProject.bind(this);
+    this.noLongerHome = this.noLongerHome.bind(this);
+    this.backHome = this.backHome.bind(this);
   }
 
   componentDidMount() {
@@ -44,24 +46,32 @@ class App extends Component {
     this.setState({favorites: favorites})
   }
 
+  noLongerHome() {
+    this.setState({isHome: false});
+  }
+
+  backHome() {
+    this.setState({isHome: true});
+  }
+
   render() {
     return (
     <Router>
       <div className="App">
-        <Header isHome={this.state.isHome} favorites={this.state.favorites}/>
+        <Header isHome={this.state.isHome} favorites={this.state.favorites} backHome={this.backHome}/>
         <Route exact path="/" render={() =>
           <div>
-            <button className="random-project-button" onClick={this.getRandomProject}>
-              Create Random Project!
-            </button>
             {this.state.api.API && (
               <Project api={this.state.api.API} description={this.state.api.description} audience={this.state.audience} saveProject={this.saveProject}/>
             )}
+            <button className="random-project-button" onClick={this.getRandomProject}>
+              Create Random Project!
+            </button>
           </div>
         }
         />
         <Route exact path="/favorites" render={() =>
-          <Favorites />
+          <Favorites favorites={this.state.favorites} noLongerHome={this.noLongerHome}/>
         }
         />
       </div>

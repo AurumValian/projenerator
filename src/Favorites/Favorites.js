@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ProjectCard from "../ProjectCard/ProjectCard";
 import "./Favorites.css";
 
 class Favorites extends Component {
@@ -6,11 +7,17 @@ class Favorites extends Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.noLongerHome();
+  }
+
   render() {
     return(
-      <div>
-      You don't have any favorites yet!
-      </div>
+      <section>
+        {this.props.favorites.map((favorite, index) =>
+          <ProjectCard api={favorite.api} audience={favorite.audience} key={index} id={index}/>
+        )}
+      </section>
     )
   }
 }
