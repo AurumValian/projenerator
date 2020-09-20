@@ -23,6 +23,7 @@ class App extends Component {
     this.saveProject = this.saveProject.bind(this);
     this.noLongerHome = this.noLongerHome.bind(this);
     this.backHome = this.backHome.bind(this);
+    this.deleteFavorite = this.deleteFavorite.bind(this);
   }
 
   componentDidMount() {
@@ -60,8 +61,12 @@ class App extends Component {
     this.setState({isHome: true});
   }
 
-  deleteFavorite() {
-
+  deleteFavorite(event) {
+    const badFavorite = event.target.closest(".project-card");
+    const newFavorites = this.state.favorites.filter((favorite, index) => {
+      return Number(badFavorite.id) !== index
+    })
+    this.setState({favorites: newFavorites})
   }
 
   render() {
@@ -81,7 +86,7 @@ class App extends Component {
         }
         />
         <Route exact path="/favorites" render={() =>
-          <Favorites favorites={this.state.favorites} noLongerHome={this.noLongerHome}/>
+          <Favorites favorites={this.state.favorites} noLongerHome={this.noLongerHome} deleteFavorite={this.deleteFavorite}/>
         }
         />
       </div>

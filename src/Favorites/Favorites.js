@@ -15,7 +15,7 @@ class Favorites extends Component {
     return(
       <section>
         {this.props.favorites.map((favorite, index) =>
-          <ProjectCard api={favorite.api.API} link={favorite.api.Link} audience={favorite.audience} key={index} id={index}/>
+          <ProjectCard api={favorite.api.API} link={favorite.api.Link} audience={favorite.audience} key={index} id={index} deleteFavorite={this.props.deleteFavorite}/>
         )}
       </section>
     )
