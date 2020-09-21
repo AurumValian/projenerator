@@ -2,9 +2,10 @@
 
 ## Author
 
-Ben McClung
-GitHub
-Linkedin
+### Ben McClung
+[GitHub](https://github.com/AurumValian)
+
+[Linkedin](https://www.linkedin.com/in/benjamin-mcclung-1a1a4b1b6/)
 
 ## Abstract
 
