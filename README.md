@@ -29,3 +29,5 @@ The favorites page (populated)
 3. Run npm start
 4. The app should run on localhost:3000
 
+## Credits
+This app uses the [Public APIs](https://github.com/davemachado/public-api) API.
