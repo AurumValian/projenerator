@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import "./Favorites.css";
+import PropTypes from "prop-types";
 
 class Favorites extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.props.noLongerHome();
   }
@@ -20,6 +17,12 @@ class Favorites extends Component {
       </section>
     )
   }
+}
+
+Favorites.propTypes = {
+  noLongerHome: PropTypes.func,
+  favorites: PropTypes.array,
+  deleteFavorite: PropTypes.func
 }
 
 export default Favorites;

@@ -26,10 +26,6 @@ class App extends Component {
     this.deleteFavorite = this.deleteFavorite.bind(this);
   }
 
-  componentDidMount() {
-    console.log(audiences, getRandomIndex(audiences))
-  }
-
   getRandomApi() {
     randomProjectApi()
       .then(response => this.setState({api: response.entries[0]}))
@@ -77,7 +73,7 @@ class App extends Component {
         <Route exact path="/" render={() =>
           <div>
             {this.state.api.API && (
-              <Project api={this.state.api.API} description={this.state.api.Description} audience={this.state.audience} saveProject={this.saveProject}/>
+              <Project api={this.state.api.API} description={this.state.api.Description} link={this.state.api.Link} audience={this.state.audience} saveProject={this.saveProject}/>
             )}
             <button className="random-project-button" onClick={this.getRandomProject}>
               Create Random Project!
