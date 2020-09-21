@@ -35,4 +35,26 @@ describe("App", () => {
     const description = await waitFor(() => screen.getByText("Generate charts, QR codes and graph images", {exact: false}))
     expect(description).toBeInTheDocument();
   })
+
+  it("shows the Your Favorites button after something is saved to favorites", async () => {
+    randomProjectApi.mockResolvedValue({"count":1,"entries":[{"API":"Image-Charts","Description":"Generate charts, QR codes and graph images","Auth":"","HTTPS":true,"Cors":"yes","Link":"https://documentation.image-charts.com/","Category":"Development"}]})
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    )
+
+    const notYourFavoritesButton = screen.queryByText("Your Favorites");
+    expect(notYourFavoritesButton).not.toBeInTheDocument();
+
+    const createProjectButton = screen.getByText("Create Random Project!");
+    fireEvent.click(createProjectButton);
+
+    const saveToFavesButton = await waitFor( () => screen.getByText("Save To Favorites"));
+    expect(saveToFavesButton).toBeInTheDocument();
+    fireEvent.click(saveToFavesButton);
+
+    const yourFavoritesButton = await waitFor( () => screen.getByText("Your Favorites"));
+    expect(yourFavoritesButton).toBeInTheDocument();
+  })
 })
