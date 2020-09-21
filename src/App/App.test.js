@@ -79,5 +79,32 @@ describe("App", () => {
 
     expect(link).toBeInTheDocument();
     expect(homeButton).toBeInTheDocument();
+
+    fireEvent.click(homeButton);
+  })
+
+  it("deletes a favorite when the delete button is pressed", async () => {
+    randomProjectApi.mockResolvedValue({"count":1,"entries":[{"API":"Image-Charts","Description":"Generate charts, QR codes and graph images","Auth":"","HTTPS":true,"Cors":"yes","Link":"https://documentation.image-charts.com/","Category":"Development"}]})
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    )
+    const createProjectButton = screen.getByText("Create Random Project!");
+    fireEvent.click(createProjectButton);
+
+    const saveToFavesButton = await waitFor( () => screen.getByText("Save To Favorites"));
+    fireEvent.click(saveToFavesButton);
+
+    const yourFavoritesButton = await waitFor( () => screen.getByText("Your Favorites"));
+    fireEvent.click(yourFavoritesButton);
+
+    const link = await waitFor( () => screen.getByText("https://documentation.image-charts.com/", {exact: false}))
+
+    expect(link).toBeInTheDocument();
+    const deleteButton = await waitFor( () => screen.getByText("Delete"));
+    fireEvent.click(deleteButton);
+
+    expect(link).not.toBeInTheDocument();
   })
 })
