@@ -26,10 +26,6 @@ class App extends Component {
     this.deleteFavorite = this.deleteFavorite.bind(this);
   }
 
-  componentDidMount() {
-    console.log(audiences, getRandomIndex(audiences))
-  }
-
   getRandomApi() {
     randomProjectApi()
       .then(response => this.setState({api: response.entries[0]}))

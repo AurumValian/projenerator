@@ -19,5 +19,13 @@ function Project(props) {
   )
 }
 
+Project.propTypes = {
+  api: PropTypes.string,
+  link: PropTypes.string,
+  description: PropTypes.string,
+  audience: PropTypes.string,
+  saveProject: PropTypes.func
+}
+
 
 export default Project;

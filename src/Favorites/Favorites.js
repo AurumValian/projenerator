@@ -3,10 +3,6 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 import "./Favorites.css";
 
 class Favorites extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.props.noLongerHome();
   }
