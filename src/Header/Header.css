@@ -1,4 +1,37 @@
 header {
+  height: 100%;
   background-color: lightsteelblue;
-  font-size: 36px
+  font-size: 36px;
+  border-bottom: 3px solid black;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+h1 {
+  grid-column: 2;
+  margin-bottom: 0
+}
+
+.favorites-button {
+  margin-top: 10%;
+  grid-row: 2;
+  grid-column: 1;
+  width: 50%;
+  height: 50%;
+  font-size: 2vw;
+  background-color: #004346;
+  color: #FFFFFF;
+  margin-left: 7%;
+}
+
+.home-button {
+  margin-top: 10%;
+  grid-column: 3;
+  grid-row: 2;
+  width: 50%;
+  height: 50%;
+  font-size: 2vw;
+  background-color: #004346;
+  color: #FFFFFF;
+  margin-right: 7%;
 }

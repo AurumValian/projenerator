@@ -1,9 +1,18 @@
+html {
+  height: 100%;
+  background-color: #67597A
+}
+
 .App {
   text-align: center;
 }
 
 .random-project-button {
-  margin-top: 1%;
-  height: 10em;
+  margin-top: 3%;
+  font-size: 2em;
+  height: 5em;
   width: 30vw;
+  background-color: lightsteelblue;
+  border-radius: 3%;
+  border: 3px solid black;
 }
