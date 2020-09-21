@@ -57,4 +57,27 @@ describe("App", () => {
     const yourFavoritesButton = await waitFor( () => screen.getByText("Your Favorites"));
     expect(yourFavoritesButton).toBeInTheDocument();
   })
+
+  it("shows a card and the home button in Your Favorites", async () => {
+    randomProjectApi.mockResolvedValue({"count":1,"entries":[{"API":"Image-Charts","Description":"Generate charts, QR codes and graph images","Auth":"","HTTPS":true,"Cors":"yes","Link":"https://documentation.image-charts.com/","Category":"Development"}]})
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    )
+    const createProjectButton = screen.getByText("Create Random Project!");
+    fireEvent.click(createProjectButton);
+
+    const saveToFavesButton = await waitFor( () => screen.getByText("Save To Favorites"));
+    fireEvent.click(saveToFavesButton);
+
+    const yourFavoritesButton = await waitFor( () => screen.getByText("Your Favorites"));
+    fireEvent.click(yourFavoritesButton);
+
+    const link = await waitFor( () => screen.getByText("https://documentation.image-charts.com/", {exact: false}))
+    const homeButton = await waitFor( () => screen.getByText("Back to Home"))
+
+    expect(link).toBeInTheDocument();
+    expect(homeButton).toBeInTheDocument();
+  })
 })
