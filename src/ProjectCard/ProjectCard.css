@@ -1,0 +1,26 @@
+.project-card {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 30% 40% 30%;
+  margin-top: 2%;
+  background-color: lightsteelblue;
+  border: 3px solid black;
+  font-size: 1.2em;
+  width: 25vw;
+  height: 30vh;
+  overflow-wrap: break-word;
+}
+
+
+.card-info {
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.delete-button {
+  width: 100%;
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 1.2em;
+}

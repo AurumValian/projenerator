@@ -4,6 +4,16 @@
   margin-top: 5%;
   text-align: center;
   width: 40%;
-  border: 1px solid black;
-  font-size: 18px;
+  border: 3px solid black;
+  border-radius: 3%;
+  font-size: 1.5em;
+  background-color: lightsteelblue;
+}
+
+.save-to-favorites {
+  height: 3em;
+  font-size: .8em;
+  background-color: #004346;
+  color: #FFFFFF;
+  border: 1px solid lightsteelblue;
 }
