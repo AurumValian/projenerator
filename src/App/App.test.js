@@ -1,9 +1,21 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
+import "@testing-library/jest-dom";
+import { MemoryRouter } from "react-router-dom";
+import { getRandomIndex, randomProjectApi } from "../helpers/helpers";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+it("renders the title and the create project button on load", () => {
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  )
+
+  const title = screen.getByText("The Project Project");
+  const button = screen.getByText("Create Random Project!");
+
+  expect(title).toBeInTheDocument();
+  expect(button).toBeInTheDocument();
+
+})
