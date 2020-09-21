@@ -1,5 +1,6 @@
 import React from "react";
 import "./Project.css";
+import PropTypes from "prop-types"
 
 function Project(props) {
   return (
@@ -17,5 +18,6 @@ function Project(props) {
     </section>
   )
 }
+
 
 export default Project;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './Header.css'
+import PropTypes from "prop-types"
 
 function Header(props) {
   return (
@@ -15,4 +16,11 @@ function Header(props) {
     </header>
   )
 }
+
+Header.propTypes = {
+  isHome: PropTypes.bool,
+  favorites: PropTypes.array,
+  backHome: PropTypes.func
+}
+
 export default Header
