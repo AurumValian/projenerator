@@ -32,6 +32,6 @@ describe("Favorites", () => {
       </MemoryRouter>
     )
 
-      expect(noLongerHome.mock.calls.length).toBe(1);
+    expect(noLongerHome.mock.calls.length).toBe(1);
   })
 })

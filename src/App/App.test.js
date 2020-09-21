@@ -1,21 +1,38 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import App from './App';
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
+jest.mock("../helpers/helpers");
 import { getRandomIndex, randomProjectApi } from "../helpers/helpers";
 
-it("renders the title and the create project button on load", () => {
-  render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  )
+describe("App", () => {
+  it("renders the title and the create project button on load", () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    )
 
-  const title = screen.getByText("The Project Project");
-  const button = screen.getByText("Create Random Project!");
+    const title = screen.getByText("The Project Project");
+    const button = screen.getByText("Create Random Project!");
 
-  expect(title).toBeInTheDocument();
-  expect(button).toBeInTheDocument();
+    expect(title).toBeInTheDocument();
+    expect(button).toBeInTheDocument();
+  })
 
+  it("shows a project when the button is pressed", async () => {
+    randomProjectApi.mockResolvedValue({"count":1,"entries":[{"API":"Image-Charts","Description":"Generate charts, QR codes and graph images","Auth":"","HTTPS":true,"Cors":"yes","Link":"https://documentation.image-charts.com/","Category":"Development"}]})
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    )
+
+    const button = screen.getByRole("button");
+    fireEvent.click(button);
+
+    const description = await waitFor(() => screen.getByText("Generate charts, QR codes and graph images", {exact: false}))
+    expect(description).toBeInTheDocument();
+  })
 })
