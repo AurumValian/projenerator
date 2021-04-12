@@ -23,6 +23,7 @@ h1 {
   background-color: #004346;
   color: #FFFFFF;
   margin-left: 7%;
+  box-shadow: 6px 6px black;
 }
 
 .home-button {
@@ -35,4 +36,5 @@ h1 {
   background-color: #004346;
   color: #FFFFFF;
   margin-right: 7%;
+  box-shadow: 6px 6px black;
 }

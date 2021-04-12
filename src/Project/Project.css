@@ -8,6 +8,7 @@
   border-radius: 3%;
   font-size: 1.5em;
   background-color: lightsteelblue;
+  box-shadow: 10px 10px black;
 }
 
 .save-to-favorites {
@@ -16,4 +17,5 @@
   background-color: #004346;
   color: #FFFFFF;
   border: 1px solid lightsteelblue;
+  box-shadow: 2px 2px black;
 }
