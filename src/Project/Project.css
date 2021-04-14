@@ -1,19 +1,22 @@
 .project-area {
   margin-left: 30%;
   margin-right: 30%;
-  margin-top: 5%;
+  margin-top: 2%;
   text-align: center;
   width: 40%;
   border: 3px solid black;
   border-radius: 3%;
   font-size: 1.5em;
   background-color: lightsteelblue;
+  box-shadow: 10px 10px black;
 }
 
 .save-to-favorites {
   height: 3em;
   font-size: .8em;
+  font-family: Gloria;
   background-color: #004346;
   color: #FFFFFF;
   border: 1px solid lightsteelblue;
+  box-shadow: 2px 2px black;
 }

@@ -5,10 +5,11 @@
   margin-top: 2%;
   background-color: lightsteelblue;
   border: 3px solid black;
-  font-size: 1.2em;
+  font-size: 1.5vw;
   width: 25vw;
   height: 30vh;
   overflow-wrap: break-word;
+  box-shadow: 8px 8px black
 }
 
 
@@ -22,5 +23,6 @@
   width: 100%;
   grid-column: 2;
   grid-row: 2;
-  font-size: 1.2em;
+  font-size: 1.2vw;
+  font-family: Gloria;
 }
