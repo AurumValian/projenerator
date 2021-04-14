@@ -32,7 +32,7 @@ class App extends Component {
     this.retrieveFavorites()
   }
 
-  async retrieveFavorites() {
+  retrieveFavorites() {
     const favorites = JSON.parse(localStorage.getItem('favorites'));
     if (!favorites) {
       this.setState({ favorites: [] })
