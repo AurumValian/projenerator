@@ -28,3 +28,39 @@ html {
 .page-description {
   margin-top: 5%
 }
+
+@media only screen and (max-width: 600px) {
+  html {
+    height: 100%;
+    background: white
+  }
+
+  header {
+    font-size: 4vw;
+  }
+
+  .random-project-button {
+    font-family: Gloria;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 2.4vw;
+    height: 20vw;
+    width: 50vw;
+    background-color: lightsteelblue;
+    border-radius: 3%;
+    border: 3px solid black;
+    box-shadow: 10px 10px;
+  }
+
+  .project-area {
+    margin: 10%;
+    width: 80%;
+    font-size: 3vw;
+  }
+
+  .project-card {
+    width: 25vw;
+    height: auto;
+    font-size: 2.4vw
+  }
+}
