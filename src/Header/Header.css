@@ -3,6 +3,7 @@ header {
   height: 100%;
   background-color: #67597A;
   font-size: 24px;
+  font-family: Gloria;
   border-bottom: 3px solid black;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -20,6 +21,7 @@ h1 {
   grid-column: 1;
   width: 50%;
   height: 90%;
+  font-family: Gloria;
   font-size: 1.5vw;
   background-color: #004346;
   color: #FFFFFF;
@@ -34,6 +36,7 @@ h1 {
   width: 50%;
   height: 90%;
   font-size: 1.5vw;
+  font-family: Gloria;
   background-color: #004346;
   color: #FFFFFF;
   margin-right: 7%;

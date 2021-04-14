@@ -1,7 +1,11 @@
+@font-face {
+  font-family: 'Gloria';
+  src: local('Gloria'), url(../fonts/GloriaHallelujah-Regular.ttf) format('truetype');
+}
+
 html {
   height: 100%;
   background-color: white;
-  font-family: fantasy;
 }
 
 .App {
@@ -9,6 +13,7 @@ html {
 }
 
 .random-project-button {
+  font-family: Gloria;
   margin-top: 3%;
   font-size: 2em;
   height: 5em;
