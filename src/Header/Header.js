@@ -9,7 +9,7 @@ function Header(props) {
       {props.favorites[0] &&
         <Link to="/favorites"><button className="favorites-button">Your Favorites</button></Link>
       }
-      <h1>The Project Project!</h1>
+      <h1>Projenerator!</h1>
       {!props.isHome &&
         <Link to="/"><button className="home-button" onClick={props.backHome}>Back to Home</button></Link>
       }
