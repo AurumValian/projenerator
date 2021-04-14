@@ -101,7 +101,7 @@ class App extends Component {
             </button>
             {!this.state.api.API && (
               <section className="page-description">
-                This website is where to turn when you can't come up with an idea for a project. Hit that button and find your next project!
+                Projenerator is where to turn when you can't come up with an idea for a project. Hit that button and find your next project!
               </section>
             )}
           </div>
