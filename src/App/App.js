@@ -18,12 +18,27 @@ class App extends Component {
       favorites: []
     }
 
+    this.retrieveFavorites = this.retrieveFavorites.bind(this);
     this.getRandomApi = this.getRandomApi.bind(this);
     this.getRandomProject = this.getRandomProject.bind(this);
     this.saveProject = this.saveProject.bind(this);
     this.noLongerHome = this.noLongerHome.bind(this);
     this.backHome = this.backHome.bind(this);
     this.deleteFavorite = this.deleteFavorite.bind(this);
+    this.resetFavoritesState = this.resetFavoritesState.bind(this);
+  }
+
+  componentDidMount() {
+    this.retrieveFavorites()
+  }
+
+  async retrieveFavorites() {
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (!favorites) {
+      this.setState({ favorites: [] })
+    } else {
+      this.setState({ favorites: favorites })
+    }
   }
 
   getRandomApi() {
@@ -37,7 +52,7 @@ class App extends Component {
     this.setState({audience: audience})
   }
 
-  saveProject() {
+  async saveProject() {
     const favorites = this.state.favorites.slice();
     const newProject = {api: this.state.api, audience: this.state.audience}
     const isRepeat = favorites.find(favorite => {
@@ -45,8 +60,13 @@ class App extends Component {
     })
     if (!isRepeat) {
       favorites.push(newProject);
-      this.setState({favorites: favorites})
+    await this.resetFavoritesState(favorites);
+    localStorage.setItem(`favorites`, JSON.stringify(this.state.favorites))
     }
+  }
+
+  resetFavoritesState(favorites) {
+    this.setState({favorites: favorites})
   }
 
   noLongerHome() {
@@ -57,12 +77,13 @@ class App extends Component {
     this.setState({isHome: true});
   }
 
-  deleteFavorite(event) {
+  async deleteFavorite(event) {
     const badFavorite = event.target.closest(".project-card");
     const newFavorites = this.state.favorites.filter((favorite, index) => {
       return Number(badFavorite.id) !== index
     })
-    this.setState({favorites: newFavorites})
+    await this.resetFavoritesState(newFavorites)
+    localStorage.setItem(`favorites`, JSON.stringify(this.state.favorites))
   }
 
   render() {
