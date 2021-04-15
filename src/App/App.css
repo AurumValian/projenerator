@@ -37,6 +37,14 @@ button:hover {
   margin-top: 5%
 }
 
+.programming {
+  background-color: lightsteelblue;
+}
+
+.persuasiveTopics {
+  background-color: #FFFEAD;
+}
+
 @media only screen and (max-width: 600px) {
   html {
     height: 100%;

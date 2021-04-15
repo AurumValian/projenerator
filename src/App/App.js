@@ -15,12 +15,16 @@ class App extends Component {
       api: {},
       audience: "",
       isHome: true,
-      subject: "persuasiveTopics",
+      subject: "programming",
+      subjectName: "Programming",
       persuasiveTopic: {},
       favorites: []
     }
 
     this.retrieveFavorites = this.retrieveFavorites.bind(this);
+    this.changeSubject = this.changeSubject.bind(this);
+    this.removeSubjectClasses = this.removeSubjectClasses.bind(this);
+    this.addSubjectClass = this.addSubjectClass.bind(this);
     this.getRandomApi = this.getRandomApi.bind(this);
     this.getRandomProject = this.getRandomProject.bind(this);
     this.saveProject = this.saveProject.bind(this);
@@ -31,7 +35,28 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.retrieveFavorites()
+    this.retrieveFavorites();
+  }
+
+  changeSubject(e) {
+    e.preventDefault();
+    const newSubject = document.querySelector("select").value
+    const subjectName = newSubject === "programming" ?
+      "Programming" : newSubject === "persuasiveTopics" ?
+      "Persuasive Essays" : "";
+      this.removeSubjectClasses();
+      this.addSubjectClass(newSubject);
+    this.setState({api: {}, audience: "", subject: newSubject, subjectName: subjectName, persuasiveTopic: {}})
+  }
+
+  removeSubjectClasses() {
+    !!document.querySelector(".project-area") && document.querySelector(".project-area").classList.remove("persuasiveTopics", "programming")
+    document.querySelector(".random-project-button").classList.remove("persuasiveTopics", "programming")
+  }
+
+  addSubjectClass(subject) {
+    !!document.querySelector(".project-area") && document.querySelector(".project-area").classList.add(subject)
+    document.querySelector(".random-project-button").classList.add(subject)
   }
 
   retrieveFavorites() {
@@ -100,11 +125,19 @@ class App extends Component {
         <Header isHome={this.state.isHome} favorites={this.state.favorites} backHome={this.backHome}/>
         <Route exact path="/" render={() =>
           <div>
+            <form>
+              <label>Your current subject is {this.state.subjectName}</label> <br/>
+              <select id="subjects" name="subjects">
+                <option value="programming">Programming</option>
+                <option value="persuasiveTopics">Persuasive Essays</option>
+              </select> <br/>
+              <button className="change-subject-button" onClick={this.changeSubject}>Change the Subject!</button>
+            </form>
             {this.state.subject === "programming" && this.state.api.API && (
               <Project subject="programming" api={this.state.api.API} description={this.state.api.Description} link={this.state.api.Link} audience={this.state.audience} saveProject={this.saveProject}/>
             )}
             {this.state.subject === "persuasiveTopics" && this.state.persuasiveTopic.topic && (
-              <Project subject="persuasiveTopic" topic={this.state.persuasiveTopic.topic} stance={this.state.persuasiveTopic.stance} saveProject={this.saveProject}/>
+              <Project subject="persuasiveTopics" topic={this.state.persuasiveTopic.topic} stance={this.state.persuasiveTopic.stance} saveProject={this.saveProject}/>
             )}
             <button className="random-project-button" onClick={this.getRandomProject}>
               Create Random Project!

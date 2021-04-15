@@ -4,9 +4,10 @@ import PropTypes from "prop-types"
 
 function Project(props) {
   return (
-    <section className="project-area">
+    <section className={"project-area " + props.subject}>
     {props.subject === "programming" && (
       <div>
+        Your goal is to make a website using the following specifications. <br/>
         Your API is: <br/>
         {props.api} <br/>
         Here is a link: <br/>
@@ -18,7 +19,7 @@ function Project(props) {
         Good luck! <br/>
       </div>
     )}
-    {props.subject === "persuasiveTopic" && (
+    {props.subject === "persuasiveTopics" && (
       <div>
         Your topic is: {props.topic} <br/>
         Your stance is: {props.stance} <br/>
