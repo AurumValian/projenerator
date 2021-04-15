@@ -4,7 +4,7 @@ import Project from "../Project/Project";
 import Favorites from "../Favorites/Favorites";
 import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
-import { getRandomIndex, randomProjectApi, audiences } from "../helpers/helpers"
+import { getRandomIndex, randomProjectApi, persuasiveTopics, audiences } from "../helpers/helpers"
 import { Route } from  "react-router-dom";
 
 class App extends Component {
@@ -15,7 +15,8 @@ class App extends Component {
       api: {},
       audience: "",
       isHome: true,
-      subject: "programming",
+      subject: "persuasiveTopics",
+      persuasiveTopic: {},
       favorites: []
     }
 
@@ -48,10 +49,13 @@ class App extends Component {
   }
 
   getRandomProject() {
-    if(this.state.subject === "programming") {
+    if (this.state.subject === "programming") {
       this.getRandomApi();
       const audience = audiences[getRandomIndex(audiences)]
       this.setState({audience: audience})
+    } else if (this.state.subject === "persuasiveTopics") {
+      const topic = persuasiveTopics[getRandomIndex(persuasiveTopics)]
+      this.setState({persuasiveTopic: {topic: topic.topic, stance: topic.stances[getRandomIndex(topic.stances)]}})
     }
   }
 
