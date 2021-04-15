@@ -12,7 +12,17 @@ class Favorites extends Component {
     return(
       <section className="card-section">
         {this.props.favorites.map((favorite, index) =>
-          <ProjectCard api={favorite.api.API} link={favorite.api.Link} audience={favorite.audience} key={index} id={index} deleteFavorite={this.props.deleteFavorite}/>
+          <ProjectCard
+            subject={favorite.subject}
+            api={favorite.api.API}
+            link={favorite.api.Link}
+            audience={favorite.audience}
+            topic={favorite.persuasiveTopic.topic}
+            stance={favorite.persuasiveTopic.stance}
+            key={index}
+            id={index}
+            deleteFavorite={this.props.deleteFavorite}
+          />
         )}
       </section>
     )
