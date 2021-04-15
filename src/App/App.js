@@ -15,6 +15,7 @@ class App extends Component {
       api: {},
       audience: "",
       isHome: true,
+      subject: "programming",
       favorites: []
     }
 
@@ -47,9 +48,11 @@ class App extends Component {
   }
 
   getRandomProject() {
-    this.getRandomApi();
-    const audience = audiences[getRandomIndex(audiences)]
-    this.setState({audience: audience})
+    if(this.state.subject === "programming") {
+      this.getRandomApi();
+      const audience = audiences[getRandomIndex(audiences)]
+      this.setState({audience: audience})
+    }
   }
 
   async saveProject() {

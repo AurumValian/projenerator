@@ -5,11 +5,13 @@ import PropTypes from "prop-types";
 function ProjectCard(props) {
   return (
     <article className="project-card" id={props.id}>
-      <p className="card-info">
-      API: {props.api} <br/>
-      Audience: {props.audience} <br/>
-      Link: {props.link} <br/>
-      </p>
+      {props.api && (
+        <p className="card-info">
+        API: {props.api} <br/>
+        Audience: {props.audience} <br/>
+        Link: {props.link} <br/>
+        </p>
+      )}
       <button className="delete-button" onClick={props.deleteFavorite}>Delete</button>
     </article>
   )

@@ -12,6 +12,51 @@ export const randomProjectApi = async () => {
   }
 }
 
+export const persuasiveTopics = [
+  { topic: "Should tattoos still be considered 'unprofessional?''", stances: ["Yes", "No"]},
+  { topic: "Should zoos and animal theme parks (such as Sea World) be closed?", stances: ["Yes", "No"] },
+  { topic: "Should it be okay to own exotic animals as pets?", stances: ["Yes", "No"] },
+  { topic: "Should organ donation be optional or mandated for all?", stances: ["Optional", "Mandated"]},
+  { topic: "Should prisoners have the right to vote?", stances: ["Yes", "No"]},
+  { topic: "Should U.S. military funding be increased or decreased?", stances: ["Increased", "Decreased"]},
+  { topic: "Should soda and candy be banned from school campuses?", stances: ["Yes", "No"] },
+  { topic: "Should tobacco products be completely banned in America?", stances: ["Yes", "No"] },
+
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] },
+  // { topic: , stances: [] }
+  { topic: "Should states have the ability to secede from the U.S.?", stances: ["Yes", "No"] }
+]
+
 export const audiences = [
   "Mothers",
   "World Travelers",
