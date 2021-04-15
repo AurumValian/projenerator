@@ -15,7 +15,7 @@ class App extends Component {
       api: {},
       audience: "",
       isHome: true,
-      subject: "programming",
+      subject: "persuasiveTopics",
       persuasiveTopic: {},
       favorites: []
     }
@@ -61,9 +61,9 @@ class App extends Component {
 
   async saveProject() {
     const favorites = this.state.favorites.slice();
-    const newProject = {api: this.state.api, audience: this.state.audience}
+    const newProject = {subject: this.state.subject, api: this.state.api, audience: this.state.audience, persuasiveTopic: this.state.persuasiveTopic}
     const isRepeat = favorites.find(favorite => {
-      return favorite.api === newProject.api && favorite.audience === newProject.audience
+      return (favorite.persuasiveTopic === newProject.persuasiveTopic) || (favorite.api === newProject.api && favorite.audience === newProject.audience)
     })
     if (!isRepeat) {
       favorites.push(newProject);
