@@ -100,13 +100,16 @@ class App extends Component {
         <Header isHome={this.state.isHome} favorites={this.state.favorites} backHome={this.backHome}/>
         <Route exact path="/" render={() =>
           <div>
-            {this.state.api.API && (
-              <Project api={this.state.api.API} description={this.state.api.Description} link={this.state.api.Link} audience={this.state.audience} saveProject={this.saveProject}/>
+            {this.state.subject === "programming" && this.state.api.API && (
+              <Project subject="programming" api={this.state.api.API} description={this.state.api.Description} link={this.state.api.Link} audience={this.state.audience} saveProject={this.saveProject}/>
+            )}
+            {this.state.subject === "persuasiveTopics" && this.state.persuasiveTopic.topic && (
+              <Project subject="persuasiveTopic" topic={this.state.persuasiveTopic.topic} stance={this.state.persuasiveTopic.stance} saveProject={this.saveProject}/>
             )}
             <button className="random-project-button" onClick={this.getRandomProject}>
               Create Random Project!
             </button>
-            {!this.state.api.API && (
+            {!this.state.api.API && this.state.persuasiveTopic !== {} && (
               <section className="page-description">
                 Projenerator is where to turn when you can't come up with an idea for a project. Hit that button and find your next project!
               </section>
