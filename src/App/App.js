@@ -15,7 +15,7 @@ class App extends Component {
       api: {},
       audience: "",
       isHome: true,
-      subject: "persuasiveTopics",
+      subject: "programming",
       persuasiveTopic: {},
       favorites: []
     }

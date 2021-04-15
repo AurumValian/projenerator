@@ -49,7 +49,7 @@ button:hover {
 
   .random-project-button {
     font-family: Gloria;
-    margin-top: 2%;
+    margin-top: 5%;
     margin-bottom: 2%;
     font-size: 2.4vw;
     height: 20vw;
@@ -63,12 +63,14 @@ button:hover {
   .project-area {
     margin: 10%;
     width: 80%;
-    font-size: 3vw;
+    height: auto;
+    font-size: 3.8vw;
   }
 
   .project-card {
-    width: 25vw;
-    height: auto;
-    font-size: 2.4vw
+    width: 30vw;
+    height: 35vw;
+    font-size: 2.8vw;
+    margin-bottom: 1%;
   }
 }
