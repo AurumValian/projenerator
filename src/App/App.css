@@ -8,59 +8,60 @@ html {
   background-color: white;
 }
 
-.App {
-  text-align: center;
-}
-
 form {
   font-family: Gloria;
-}
-
-.change-subject-button {
-  font-family: Gloria;
-  font-size: 1.2vw;
-  background-color: #004346;
-  color: #FFFFFF;
-  box-shadow: 1px 1px black;
-}
-
-.random-project-button {
-  font-family: Gloria;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  font-size: 2.4vw;
-  height: 5em;
-  width: 30vw;
-  background-color: lightsteelblue;
-  border-radius: 3%;
-  border: 3px solid black;
-  box-shadow: 10px 10px;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-.random-project-button:hover {
-  box-shadow: 12px 12px;
+.App {
+  text-align: center;
+}
+
+.change-subject-button {
+  box-shadow: 2px 2px black;
+  font-family: Gloria;
+  font-size: 1.2vw;
+  background-color: #004346;
+  color: #FFFFFF;
 }
 
 .page-description {
   margin-top: 5%
 }
 
-.programming {
-  background-color: lightsteelblue;
-}
-
 .persuasiveTopics {
   background-color: #FFFEAD;
 }
 
+.programming {
+  background-color: lightsteelblue;
+}
+
+.random-project-button {
+  height: 5em;
+  width: 30vw;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 3px solid black;
+  border-radius: 3%;
+  box-shadow: 10px 10px;
+  font-family: Gloria;
+  font-size: 2.4vw;
+}
+
+.random-project-button:hover {
+  box-shadow: 12px 12px;
+}
+
+
+
 @media only screen and (max-width: 600px) {
   html {
     height: 100%;
-    background: white
+    background-color: white
   }
 
   header {
@@ -71,31 +72,30 @@ button:hover {
     font-size: 3vw;
   }
 
-  .random-project-button {
-    font-family: Gloria;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    font-size: 3.5vw;
-    height: 20vw;
-    width: 50vw;
-    background-color: lightsteelblue;
-    border-radius: 3%;
-    border: 3px solid black;
-    box-shadow: 10px 10px;
-  }
-
   .project-area {
-    margin: 10%;
-    margin-top: 2%;
     width: 80%;
     height: auto;
+    margin: 10%;
+    margin-top: 2%;
     font-size: 3.8vw;
   }
 
   .project-card {
     width: 30vw;
     height: 35vw;
-    font-size: 2.8vw;
     margin-bottom: 1%;
+    font-size: 2.8vw;
+  }
+
+  .random-project-button {
+    height: 20vw;
+    width: 50vw;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    border-radius: 3%;
+    border: 3px solid black;
+    box-shadow: 10px 10px;
+    font-family: Gloria;
+    font-size: 3.5vw;
   }
 }
