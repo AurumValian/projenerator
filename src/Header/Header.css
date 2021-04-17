@@ -34,9 +34,15 @@ h1 {
   color: #FFFFFF;
   font-family: Gloria;
   font-size: 1.5vw;
+  pointer-events: auto;
 }
 
 .favorites-button:hover,
 .home-button:hover {
   box-shadow: 6px 6px black
+}
+
+.favorites-link,
+.home-link {
+  pointer-events: none;
 }

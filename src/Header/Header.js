@@ -7,7 +7,7 @@ function Header(props) {
   return (
     <header>
       {props.favorites[0] &&
-        <Link to="/favorites">
+        <Link to="/favorites" className="favorites-link">
           <button className="favorites-button">
             Your Favorites
           </button>
@@ -15,7 +15,7 @@ function Header(props) {
       }
       <h1>Projenerator!</h1>
       {!props.isHome &&
-        <Link to="/">
+        <Link to="/" className="home-link">
           <button className="home-button" onClick={props.backHome}>
             Back to Home
           </button>
