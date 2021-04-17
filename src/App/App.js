@@ -49,7 +49,7 @@ class App extends Component {
       "Programming" : newSubject === "persuasiveTopics" ?
       "Persuasive Essays" : "";
       this.removeSubjectClasses();
-      this.addSubjectClass(newSubject);
+      // this.addSubjectClass(newSubject);
     this.setState({api: {}, audience: "", subject: newSubject, subjectName: subjectName, persuasiveTopic: {}})
   }
 
@@ -160,7 +160,7 @@ class App extends Component {
                 saveProject={this.saveProject}
               />
             )}
-            <button className="random-project-button" onClick={this.getRandomProject}>
+            <button className={"random-project-button " + (this.state.subject)} onClick={this.getRandomProject}>
               Create Random Project!
             </button>
             {!this.state.api.API && !this.state.persuasiveTopic.topic && (
