@@ -49,7 +49,7 @@ class App extends Component {
       "Programming" : newSubject === "persuasiveTopics" ?
       "Persuasive Essays" : "";
       this.removeSubjectClasses();
-      this.addSubjectClass(newSubject);
+      // this.addSubjectClass(newSubject);
     this.setState({api: {}, audience: "", subject: newSubject, subjectName: subjectName, persuasiveTopic: {}})
   }
 

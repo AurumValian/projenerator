@@ -3,7 +3,8 @@ header {
   grid-template-columns: 1fr 2fr 1fr;
   height: 100%;
   border-bottom: 3px solid black;
-  background-color: #67597A;
+  background: rgb(103,89,122);
+  background: radial-gradient(circle, rgba(103,89,122,1) 0%, rgba(157,119,208,1) 47%, rgba(103,89,122,1) 89%, rgba(103,89,122,1) 100%);
   color: white;
   font-family: Gloria;
   font-size: 24px;
