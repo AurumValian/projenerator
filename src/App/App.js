@@ -183,8 +183,7 @@ class App extends Component {
             noLongerHome={this.noLongerHome}
             deleteFavorite={this.deleteFavorite}
           />
-        }
-        />
+        }/>
       </div>
     </Router>
     );

@@ -26,6 +26,9 @@ function ProjectCard(props) {
 }
 
 ProjectCard.propTypes = {
+  subject: PropTypes.string,
+  topic: PropTypes.string,
+  stance: PropTypes.string,
   api: PropTypes.string,
   audience: PropTypes.string,
   link: PropTypes.string,

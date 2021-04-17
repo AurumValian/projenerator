@@ -32,6 +32,9 @@ function Project(props) {
 }
 
 Project.propTypes = {
+  subject: PropTypes.string,
+  topic: PropTypes.string,
+  stance: PropTypes.string,
   api: PropTypes.string,
   link: PropTypes.string,
   description: PropTypes.string,
