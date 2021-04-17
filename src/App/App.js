@@ -21,10 +21,10 @@ class App extends Component {
       favorites: []
     }
 
-    this.retrieveFavorites = this.retrieveFavorites.bind(this);
     this.changeSubject = this.changeSubject.bind(this);
     this.removeSubjectClasses = this.removeSubjectClasses.bind(this);
     this.addSubjectClass = this.addSubjectClass.bind(this);
+    this.retrieveFavorites = this.retrieveFavorites.bind(this);
     this.getRandomApi = this.getRandomApi.bind(this);
     this.getRandomProject = this.getRandomProject.bind(this);
     this.saveProject = this.saveProject.bind(this);
@@ -102,10 +102,6 @@ class App extends Component {
     }
   }
 
-  resetFavoritesState(favorites) {
-    this.setState({favorites: favorites})
-  }
-
   noLongerHome() {
     this.setState({isHome: false});
   }
@@ -123,6 +119,10 @@ class App extends Component {
     localStorage.setItem(`favorites`, JSON.stringify(this.state.favorites))
   }
 
+  resetFavoritesState(favorites) {
+    this.setState({favorites: favorites})
+  }
+
   render() {
     return (
     <Router>
@@ -131,32 +131,58 @@ class App extends Component {
         <Route exact path="/" render={() =>
           <div>
             <form>
-              <label>Your current subject is {this.state.subjectName}</label> <br/>
+              <label>
+                Your current subject is {this.state.subjectName}
+              </label> <br/>
               <select id="subjects" name="subjects">
                 <option value="programming">Programming</option>
                 <option value="persuasiveTopics">Persuasive Essays</option>
               </select> <br/>
-              <button className="change-subject-button" onClick={this.changeSubject}>Change the Subject!</button>
+              <button className="change-subject-button" onClick={this.changeSubject}>
+                Change the Subject!
+              </button>
             </form>
             {this.state.subject === "programming" && this.state.api.API && (
-              <Project subject="programming" api={this.state.api.API} description={this.state.api.Description} link={this.state.api.Link} audience={this.state.audience} saveProject={this.saveProject}/>
+              <Project
+                subject="programming"
+                api={this.state.api.API}
+                description={this.state.api.Description}
+                link={this.state.api.Link}
+                audience={this.state.audience}
+                saveProject={this.saveProject}
+              />
             )}
             {this.state.subject === "persuasiveTopics" && this.state.persuasiveTopic.topic && (
-              <Project subject="persuasiveTopics" topic={this.state.persuasiveTopic.topic} stance={this.state.persuasiveTopic.stance} saveProject={this.saveProject}/>
+              <Project
+                subject="persuasiveTopics"
+                topic={this.state.persuasiveTopic.topic}
+                stance={this.state.persuasiveTopic.stance}
+                saveProject={this.saveProject}
+              />
             )}
             <button className="random-project-button" onClick={this.getRandomProject}>
               Create Random Project!
             </button>
             {!this.state.api.API && !this.state.persuasiveTopic.topic && (
               <section className="page-description">
-                Projenerator is where to turn when you can't come up with an idea for a project. Hit that button and find your next project!
+                <p>
+                  Projenerator is where to turn when you can't come up with an idea for a project. <br/>
+                  First, select a project subject. The current subject selected is above the dropdown menu. <br/>
+                  Use the dropdown menu to choose a new subject, then press "Change the Subject!" <br/>
+                  When you hit the "Create Random Project" button, it will give you a new prompt for your project. <br/>
+                  Give it a try! Hit that button and find your next project!
+                </p>
               </section>
             )}
           </div>
         }
         />
         <Route exact path="/favorites" render={() =>
-          <Favorites favorites={this.state.favorites} noLongerHome={this.noLongerHome} deleteFavorite={this.deleteFavorite}/>
+          <Favorites
+            favorites={this.state.favorites}
+            noLongerHome={this.noLongerHome}
+            deleteFavorite={this.deleteFavorite}
+          />
         }
         />
       </div>
