@@ -20,7 +20,9 @@ function ProjectCard(props) {
           Stance: {props.stance} <br/>
         </p>
       }
-      <button className="delete-button" onClick={props.deleteFavorite}>Delete</button>
+      <button className="delete-button" onClick={props.deleteFavorite}>
+        Delete
+      </button>
     </article>
   )
 }

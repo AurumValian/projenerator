@@ -7,11 +7,19 @@ function Header(props) {
   return (
     <header>
       {props.favorites[0] &&
-        <Link to="/favorites"><button className="favorites-button">Your Favorites</button></Link>
+        <Link to="/favorites">
+          <button className="favorites-button">
+            Your Favorites
+          </button>
+        </Link>
       }
       <h1>Projenerator!</h1>
       {!props.isHome &&
-        <Link to="/"><button className="home-button" onClick={props.backHome}>Back to Home</button></Link>
+        <Link to="/">
+          <button className="home-button" onClick={props.backHome}>
+            Back to Home
+          </button>
+        </Link>
       }
     </header>
   )

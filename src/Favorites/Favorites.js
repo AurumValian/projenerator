@@ -14,11 +14,11 @@ class Favorites extends Component {
         {this.props.favorites.map((favorite, index) =>
           <ProjectCard
             subject={favorite.subject}
+            topic={favorite.persuasiveTopic.topic}
+            stance={favorite.persuasiveTopic.stance}
             api={favorite.api.API}
             link={favorite.api.Link}
             audience={favorite.audience}
-            topic={favorite.persuasiveTopic.topic}
-            stance={favorite.persuasiveTopic.stance}
             key={index}
             id={index}
             deleteFavorite={this.props.deleteFavorite}
